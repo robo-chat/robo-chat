@@ -15,6 +15,9 @@
 		22AE8C60247D687900D9CF3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C5F247D687900D9CF3A /* Preview Assets.xcassets */; };
 		22AE8C63247D687900D9CF3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C61247D687900D9CF3A /* LaunchScreen.storyboard */; };
 		22AE8C6B247D6D0B00D9CF3A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C6A247D6D0B00D9CF3A /* README.md */; };
+		7D107ED72487A4820067580C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D107ED62487A4820067580C /* LoginView.swift */; };
+		7D89DEE32493223900FF0D0B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89DEE22493223900FF0D0B /* Utils.swift */; };
+		7DEADAE72491C23000E61E4F /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEADAE62491C23000E61E4F /* ChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		22AE8C62247D687900D9CF3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22AE8C64247D687900D9CF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22AE8C6A247D6D0B00D9CF3A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7D107ED62487A4820067580C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7D89DEE22493223900FF0D0B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		7DEADAE62491C23000E61E4F /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,9 @@
 				22AE8C64247D687900D9CF3A /* Info.plist */,
 				22AE8C57247D687800D9CF3A /* robochat.xcdatamodeld */,
 				22AE8C5E247D687900D9CF3A /* Preview Content */,
+				7D107ED62487A4820067580C /* LoginView.swift */,
+				7DEADAE62491C23000E61E4F /* ChatView.swift */,
+				7D89DEE22493223900FF0D0B /* Utils.swift */,
 			);
 			path = robochat;
 			sourceTree = "<group>";
@@ -156,6 +165,9 @@
 				22AE8C54247D687800D9CF3A /* AppDelegate.swift in Sources */,
 				22AE8C59247D687800D9CF3A /* robochat.xcdatamodeld in Sources */,
 				22AE8C5B247D687800D9CF3A /* ContentView.swift in Sources */,
+				7D89DEE32493223900FF0D0B /* Utils.swift in Sources */,
+				7D107ED72487A4820067580C /* LoginView.swift in Sources */,
+				7DEADAE72491C23000E61E4F /* ChatView.swift in Sources */,
 				22AE8C56247D687800D9CF3A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

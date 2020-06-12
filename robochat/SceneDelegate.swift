@@ -9,6 +9,10 @@
 import UIKit
 import SwiftUI
 
+class UserSettings: ObservableObject {
+    @Published var loggedIn: Bool = false
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -20,12 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Get the managed object context from the shared persistent container.
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let contentView = ContentView().environment(\.managedObjectContext, context)
-
+//        let contentView = StartView().environment(\.managedObjectContext, context)
+        let settings = UserSettings()
+        let contentView = StartView().environmentObject(settings)
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
@@ -68,4 +73,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
+struct StartView: View {
+    @EnvironmentObject var settings: UserSettings
+    var body: some View {
+        if UserDefaults.standard.bool(forKey: "loggedIn") {
+            return AnyView(ChatView())
+        } else {
+            return AnyView(LoginView())
+        }
+    }
+}
 
+
+struct SceneDelegate_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}
