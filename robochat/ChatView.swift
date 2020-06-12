@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct ChatView: View {
+    @EnvironmentObject var settings: UserSettings
     var body: some View {
-        Text("Chat!")
+        Text("Hello \(self.settings.account)!")
     }
 }
 

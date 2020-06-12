@@ -24,7 +24,13 @@ struct LoginView: View {
         Alert(title: Text(""), message: Text(alertMsg), dismissButton: .default(Text("确定")))
     }
     var body: some View {
-        VStack(alignment: .leading) {
+        let accountBinding = Binding<String>(get: {
+            self.account
+        }, set: {
+            self.account = $0
+            self.loginEnable = self.validate()
+        })
+        return VStack(alignment: .leading) {
             Text("账号登录")
                 .frame(height: 120, alignment: .leading)
                 .font(.title)
@@ -33,9 +39,10 @@ struct LoginView: View {
             VStack {
                 HStack {
                     Text("账号").padding(.trailing)
-                    TextField("请填写账号", text: $account, onEditingChanged: { c in
-                        self.loginEnable = self.validate()
-                    })
+//                    TextField("请填写账号", text: $account, onEditingChanged: { c in
+//                        self.loginEnable = self.validate()
+//                    })
+                    TextField("请填写账号", text: accountBinding)
                 }.frame(height: 40)
                 seperator()
             }.padding(.bottom, 10)
@@ -49,7 +56,9 @@ struct LoginView: View {
             Button(action: {
                 if self.validate() {
                     UserDefaults.standard.set(true, forKey: "loggedIn")
+                    UserDefaults.standard.set(self.account, forKey: "account")
                     self.settings.loggedIn = true
+                    self.settings.account = self.account
                 } else {
                     self.showAlert = true
                 }
