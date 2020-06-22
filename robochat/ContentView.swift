@@ -12,51 +12,50 @@ struct ContentView: View {
     @State var pushLoginActive = false
     @EnvironmentObject var appData: AppData
     
+    var logined: Bool {
+        get{ return appData.userName != nil }
+    }
+    
     var body: some View {
         NavigationView {
             VStack(){
-                getWelcomeView()
+                if logined {
+                    Text("欢迎，\(appData.userName ?? "")").font(.title)
+                } else {
+                    Button(action: {self.toLogin()}){
+                        Text("请登录").font(.headline)
+                    }
+                }
                 NavigationLink(destination: LoginView(), isActive: $pushLoginActive) {
                     Text("")
                 }.hidden()
                 Spacer()
-                Group{
-                    if appData.userName == nil{
-                        EmptyView()
-                    }else{
-                        Button(action: {
-                            self.appData.userName = nil
-                            self.toLogin()
-                        }){
-                            Text("退出登录")
-                        }
+                if logined {
+                    Button(action: logout){
+                        Text("退出登录")
                     }
                 }
             }
         }.onAppear{
-            if self.appData.userName == nil{
+            if !self.logined {
                 self.toLogin()
             }
-        }
-    }
-    
-    private func getWelcomeView () -> some View {
-        if let userName = appData.userName{
-            return AnyView(Text("欢迎，\(userName)").font(.title))
-        } else {
-            return AnyView(Button(action: {self.toLogin()}){
-                Text("请登录").font(.headline)
-            })
         }
     }
     
     private func toLogin(){
         pushLoginActive = true
     }
+    
+    private func logout(){
+        appData.userName = nil
+        toLogin()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static let appData = AppData()
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(appData)
     }
 }
