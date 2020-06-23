@@ -15,6 +15,8 @@
 		22AE8C60247D687900D9CF3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C5F247D687900D9CF3A /* Preview Assets.xcassets */; };
 		22AE8C63247D687900D9CF3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C61247D687900D9CF3A /* LaunchScreen.storyboard */; };
 		22AE8C6B247D6D0B00D9CF3A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C6A247D6D0B00D9CF3A /* README.md */; };
+		E318397424A241F400ADFCAF /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318397324A241F400ADFCAF /* LogInView.swift */; };
+		E318397624A2425400ADFCAF /* ChatBotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E318397524A2425400ADFCAF /* ChatBotView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		22AE8C62247D687900D9CF3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22AE8C64247D687900D9CF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22AE8C6A247D6D0B00D9CF3A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E318397324A241F400ADFCAF /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		E318397524A2425400ADFCAF /* ChatBotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				22AE8C64247D687900D9CF3A /* Info.plist */,
 				22AE8C57247D687800D9CF3A /* robochat.xcdatamodeld */,
 				22AE8C5E247D687900D9CF3A /* Preview Content */,
+				E318397324A241F400ADFCAF /* LogInView.swift */,
+				E318397524A2425400ADFCAF /* ChatBotView.swift */,
 			);
 			path = robochat;
 			sourceTree = "<group>";
@@ -153,6 +159,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E318397624A2425400ADFCAF /* ChatBotView.swift in Sources */,
+				E318397424A241F400ADFCAF /* LogInView.swift in Sources */,
 				22AE8C54247D687800D9CF3A /* AppDelegate.swift in Sources */,
 				22AE8C59247D687800D9CF3A /* robochat.xcdatamodeld in Sources */,
 				22AE8C5B247D687800D9CF3A /* ContentView.swift in Sources */,
