@@ -9,7 +9,7 @@
 import SwiftUI
 //import UIKit
 
-struct LoginView: View {
+struct LogInView: View {
     
     @State var account: String = ""
     @State var password: String = ""
@@ -56,6 +56,7 @@ struct LoginView: View {
             
             Button(action:{
                 self.isActive = true
+                self.account="ChenMY"
             }){
                 Text("登录")
                    .font(.system(size:25))
@@ -66,9 +67,10 @@ struct LoginView: View {
             .disabled(!isCanLogin)
             .padding(.bottom,180)
             
-            NavigationLink(destination:ChatBotView(), isActive: $isActive) {
-                Text("")
-            }
+//            NavigationLink(destination: ChatBotView(), isActive: $isActive) {
+//                           Text("")
+//                       }
+            
         }
         .frame(maxHeight: .infinity)
         .background(Color.init(#colorLiteral(red: 0.9293304086, green: 0.929463923, blue: 0.9293012023, alpha: 1)).edgesIgnoringSafeArea(.all))
@@ -77,6 +79,6 @@ struct LoginView: View {
 
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LoginView
     }
 }
