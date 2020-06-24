@@ -6,27 +6,27 @@
 //  Copyright © 2020 robochat. All rights reserved.
 //
 
-import SwiftUI//引入swiftui组件  375*667
-let btnBgColor = Color(red: 231/255.0, green:231.0/255.0, blue:231.0/255.0,opacity:1.0)//声明按钮背景色-常量，可以放在配置文件里面读取
+import SwiftUI
+let btnBgColor = Color(red: 231/255.0, green:231.0/255.0, blue:231.0/255.0,opacity:1.0)
 
-struct LogInView: View{//定义 登录 界面的结构体
+struct LogInView: View{
     
-    @State var account : String = ""//声明属性装置器，记录账号数据
-    @State var password : String = ""//声明属性装置器，记录密码数据
+    @State var account : String = ""
+    @State var password : String = ""
     
     var body : some View {
-        ZStack{//覆盖视图，解决z轴布局
-            VStack{//垂直视图，y轴方向布局
-                Color(red:250/255.0,green:250/255.0,blue:250/255.0)//定义背景色
+        ZStack{
+            VStack{
+                Color(red:250/255.0,green:250/255.0,blue:250/255.0)
             }
-            VStack(alignment: .leading){//垂直方向视图-左对齐
-                Text("微信号/QQ/邮箱登录").font(.title).padding(.top, 40.0)//设置上边距
+            VStack(alignment: .leading){
+                Text("微信号/QQ/邮箱登录").font(.title).padding(.top, 40.0)
                 HStack{
                     Text("账号")
-                    TextField("请填写微信号/QQ号/邮箱",text: $account).padding(.leading, 20.0).frame(width:300.0)//textfield 输入框 frame 组件大小
+                    TextField("请填写微信号/QQ号/邮箱",text: $account).padding(.leading, 20.0).frame(width:300.0)
                 }
                 .padding(.top, 25.0)
-                Divider()//分割线 根据视图确认
+                Divider()
                     .padding(.trailing, 20.0)
                 HStack(alignment: .top){
                     Text("密码")
@@ -44,7 +44,7 @@ struct LogInView: View{//定义 登录 界面的结构体
                     }
                 
                 }
-                Spacer()//自适应留白空间，两个组件之间，根据位置
+                Spacer()
                 HStack(){
                     Text("找回密码")
                         .font(.caption)
