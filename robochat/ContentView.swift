@@ -7,12 +7,11 @@
 //
 
 import SwiftUI
-let lightGreyColor = Color(red: 243.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
 
 struct seperator: View {
     var body: some View {
         VStack {
-            Divider().background(lightGreyColor)
+            Divider().background(Color("normalDivider"))
         }.frame(height: 1, alignment: .center)
     }
 }

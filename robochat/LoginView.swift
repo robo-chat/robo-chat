@@ -7,10 +7,6 @@
 //
 
 import SwiftUI
-let enableBgColor = Color(red: 38.0/255.0, green: 172.0/255.0, blue: 40.0/255.0, opacity: 1.0)
-let disableBgColor = lightGreyColor
-let enableTextColor = Color(red: 1, green: 1, blue: 1, opacity: 1.0)
-let disableTextColor = Color(red: 170.0/255.0, green: 170.0/255.0, blue: 170.0/255.0, opacity: 1.0)
 
 struct LoginView: View {
     @EnvironmentObject var settings: UserSettings
@@ -39,9 +35,6 @@ struct LoginView: View {
             VStack {
                 HStack {
                     Text("账号").padding(.trailing)
-//                    TextField("请填写账号", text: $account, onEditingChanged: { c in
-//                        self.loginEnable = self.validate()
-//                    })
                     TextField("请填写账号", text: accountBinding)
                 }.frame(height: 40)
                 seperator()
@@ -64,10 +57,10 @@ struct LoginView: View {
                 }
             }) {
                 Text("登录").font(.headline)
-                    .foregroundColor(self.loginEnable ? enableTextColor : disableTextColor)
+                    .foregroundColor(self.loginEnable ? .white : .secondary)
                 .padding()
                 .frame(width: UIScreen.main.bounds.width - 40, height: 44)
-                .background(self.loginEnable ? enableBgColor : disableBgColor)
+                .background(self.loginEnable ? Color("enabledBtnBg") : Color("disabledBtnBg"))
                 .clipped()
                 .cornerRadius(4.0)
             }
