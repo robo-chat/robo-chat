@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Environment(\.presentationMode) var presentation
     @EnvironmentObject var appData: AppData
     
-    @State internal var userName: String = ""
-    @State internal var password: String = ""
+    @State private var userName: String = ""
+    @State private var password: String = ""
+    
     internal let titleWidth: CGFloat = 92.0
     
     var loginDisabled: Bool{
@@ -24,7 +24,11 @@ struct LoginView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 32.0){
-            Text("登录到机器人聊天室").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            Button(action: close){
+                Image(systemName: "xmark").font(.system(size: 22))
+            }.foregroundColor(Color(UIColor.label))
+            Spacer().frame(height: 32)
+            Text("登录到机器人聊天室").font(.title)
             VStack(spacing: 0.0) {
                 HStack{
                     Text("帐号")
@@ -51,13 +55,19 @@ struct LoginView: View {
             .frame(maxHeight: .infinity)
             .padding(0.0)
             .navigationBarBackButtonHidden(true)
-            .background(Color.init(#colorLiteral(red: 0.9293304086, green: 0.929463923, blue: 0.9293012023, alpha: 1)).edgesIgnoringSafeArea(.all))
+            .background(Color("LoginBackgroundColor").edgesIgnoringSafeArea(.all))
             
     }
     
     private func login(){
         appData.userName = self.userName
-        self.presentation.wrappedValue.dismiss()
+        close()
+    }
+    
+    private func close(){
+        withAnimation(){
+            appData.showLogin = false
+        }
     }
 }
 
@@ -73,8 +83,8 @@ struct LoginButtonStyle: ButtonStyle{
             configuration.label
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14.0)
-                .background(isEnabled ? Color.green : Color.init(#colorLiteral(red: 0.8822754025, green: 0.8824025393, blue: 0.8822476268, alpha: 1)))
-                .foregroundColor(isEnabled ? .white : Color.init(#colorLiteral(red: 0.705819428, green: 0.7059226632, blue: 0.7057968974, alpha: 1)))
+                .background(isEnabled ? Color.green : Color("LoginButtonDisabledColor"))
+                .foregroundColor(isEnabled ? .white : Color("LoginButtonLabelDisabledColor"))
                 .overlay(configuration.isPressed ? Color.init(#colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 0.2047035531)) : Color.init(#colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 0)))
                 .cornerRadius(4.0)
         }

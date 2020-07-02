@@ -15,6 +15,7 @@
 		22AE8C60247D687900D9CF3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C5F247D687900D9CF3A /* Preview Assets.xcassets */; };
 		22AE8C63247D687900D9CF3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C61247D687900D9CF3A /* LaunchScreen.storyboard */; };
 		22AE8C6B247D6D0B00D9CF3A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C6A247D6D0B00D9CF3A /* README.md */; };
+		AB2BD4F424AD62D400CC04BF /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2BD4F324AD62D400CC04BF /* StartView.swift */; };
 		ABFBEF2124A03EA4009682D7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBEF2024A03EA4009682D7 /* AppData.swift */; };
 		ABFBEF2324A03EB0009682D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBEF2224A03EB0009682D7 /* LoginView.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		22AE8C62247D687900D9CF3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22AE8C64247D687900D9CF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22AE8C6A247D6D0B00D9CF3A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AB2BD4F324AD62D400CC04BF /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		ABFBEF2024A03EA4009682D7 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		ABFBEF2224A03EB0009682D7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 				22AE8C5C247D687900D9CF3A /* Assets.xcassets */,
 				22AE8C61247D687900D9CF3A /* LaunchScreen.storyboard */,
 				22AE8C64247D687900D9CF3A /* Info.plist */,
+				AB2BD4F324AD62D400CC04BF /* StartView.swift */,
 				22AE8C57247D687800D9CF3A /* robochat.xcdatamodeld */,
 				22AE8C5E247D687900D9CF3A /* Preview Content */,
 			);
@@ -165,6 +168,7 @@
 				22AE8C5B247D687800D9CF3A /* ContentView.swift in Sources */,
 				22AE8C56247D687800D9CF3A /* SceneDelegate.swift in Sources */,
 				ABFBEF2124A03EA4009682D7 /* AppData.swift in Sources */,
+				AB2BD4F424AD62D400CC04BF /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

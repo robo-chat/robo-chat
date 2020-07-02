@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var pushLoginActive = false
     @EnvironmentObject var appData: AppData
     
     var logined: Bool {
@@ -21,14 +20,11 @@ struct ContentView: View {
             VStack(){
                 if logined {
                     Text("欢迎，\(appData.userName ?? "")").font(.title)
-                } else {
-                    Button(action: {self.toLogin()}){
-                        Text("请登录").font(.headline)
+                }else{
+                    Button(action: toLogin){
+                        Text("请登录")
                     }
                 }
-                NavigationLink(destination: LoginView(), isActive: $pushLoginActive) {
-                    Text("")
-                }.hidden()
                 Spacer()
                 if logined {
                     Button(action: logout){
@@ -37,19 +33,21 @@ struct ContentView: View {
                 }
             }
         }.onAppear{
-            if !self.logined {
+            if self.appData.userName == nil {
                 self.toLogin()
             }
         }
     }
     
-    private func toLogin(){
-        pushLoginActive = true
-    }
-    
     private func logout(){
         appData.userName = nil
         toLogin()
+    }
+    
+    private func toLogin(){
+        withAnimation{
+            appData.showLogin = true
+        }
     }
 }
 

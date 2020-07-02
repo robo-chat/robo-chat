@@ -10,4 +10,5 @@ import Foundation
 
 class AppData: ObservableObject{
     @Published var userName: String?
+    @Published var showLogin: Bool = false
 }
