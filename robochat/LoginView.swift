@@ -8,13 +8,18 @@
 
 import SwiftUI
 
+let DEFAULT_TITLE_PADDING_TOP: CGFloat = 52.0
+let TITLE_WIDTH: CGFloat = 92.0
+
 struct LoginView: View {
     @EnvironmentObject var appData: AppData
     
     @State private var userName: String = ""
     @State private var password: String = ""
+    @State private var titlePaddingTop: CGFloat = DEFAULT_TITLE_PADDING_TOP
     
-    internal let titleWidth: CGFloat = 92.0
+    private let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
+    private let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
     
     var loginDisabled: Bool{
         get{
@@ -25,22 +30,25 @@ struct LoginView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 32.0){
             Button(action: close){
-                Image(systemName: "xmark").font(.system(size: 22))
+                Image(systemName: "xmark")
+                    .font(.system(size: 18))
+                    .padding(.vertical, 12)
             }.foregroundColor(Color(UIColor.label))
-            Spacer().frame(height: 32)
-            Text("登录到机器人聊天室").font(.title)
+            Text("登录到机器人聊天室")
+                .font(.title)
+                .padding(.top, titlePaddingTop)
             VStack(spacing: 0.0) {
                 HStack{
                     Text("帐号")
                         .multilineTextAlignment(.leading)
-                        .frame(width: titleWidth, alignment: .topLeading)
+                        .frame(width: TITLE_WIDTH, alignment: .topLeading)
                     TextField("请填写汉字、英文字母或数字", text: $userName)
                 }.padding(.vertical)
                 Divider()
                 HStack{
                     Text("密码")
                         .multilineTextAlignment(.leading)
-                        .frame(width: titleWidth, alignment: .topLeading)
+                        .frame(width: TITLE_WIDTH, alignment: .topLeading)
                     SecureField("请填写密码", text: $password)
                 }.padding(.vertical)
                 Divider()
@@ -56,7 +64,16 @@ struct LoginView: View {
             .padding(0.0)
             .navigationBarBackButtonHidden(true)
             .background(Color("LoginBackgroundColor").edgesIgnoringSafeArea(.all))
-            
+            .onReceive(willShow){_ in
+                withAnimation{
+                    self.titlePaddingTop = 12.0
+                }
+            }
+            .onReceive(willHide){_ in
+                withAnimation{
+                    self.titlePaddingTop = DEFAULT_TITLE_PADDING_TOP
+                }
+            }
     }
     
     private func login(){
@@ -90,7 +107,6 @@ struct LoginButtonStyle: ButtonStyle{
         }
     }
 }
-
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

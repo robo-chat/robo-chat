@@ -33,7 +33,7 @@ struct ContentView: View {
                 }
             }
         }.onAppear{
-            if self.appData.userName == nil {
+            if !self.logined {
                 self.toLogin()
             }
         }
