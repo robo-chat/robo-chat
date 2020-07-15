@@ -12,7 +12,10 @@ struct ChatView: View {
     @EnvironmentObject var appData: AppData
     @State private var msg: String = ""
     @State private var micType: Bool = false
-    @State private var cusKeyboradType = false
+    @State private var cusKeyboradType: Bool = false
+    @State private var bottom: CGFloat = 0
+    private let didShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
+    private let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
     var body: some View {
         VStack{
             Spacer()
@@ -57,23 +60,39 @@ struct ChatView: View {
                 .padding(.horizontal)
                 .background(Color("chat_send_background"))
         }.navigationBarTitle("智能助手", displayMode: .inline)
-        .navigationBarItems(
-            leading: Button(action: toLogin){
-                Image(systemName: "chevron.left")
-                .font(.system(size: 20))
-                .foregroundColor(.primary)
-            },
-            trailing: Button(action: toLogin){
-                Image(systemName: "ellipsis")
-                .font(.system(size: 20))
-                .foregroundColor(.primary)
-            }
+            .navigationBarItems(
+                leading: Button(action: toLogin){
+                    Image(systemName: "chevron.left")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                },
+                trailing: Button(action: toLogin){
+                    Image(systemName: "ellipsis")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                }
         )
+            .padding(.bottom, self.bottom)
+            .onReceive(didShow){note in
+                withAnimation{
+                    self.bottomChange(note)
+                }
+            }
+            .onReceive(willHide){note in
+                self.bottomChange(note)
+            }
     }
     private func toLogin(){
         withAnimation{
             appData.showLogin = true
         }
+    }
+    private func bottomChange(_ notification: Notification) {
+        let userInfo = notification.userInfo;
+        let keyboardBeginFrame = userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect
+        let keyboardEndFrame = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        let visible = keyboardBeginFrame?.minY ?? 0 > keyboardEndFrame?.minY ?? 0
+        self.bottom = visible ? keyboardEndFrame?.height ?? 0 : 0
     }
 }
 struct ChatView_Previews: PreviewProvider {
