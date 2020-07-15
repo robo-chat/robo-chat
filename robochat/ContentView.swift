@@ -19,16 +19,10 @@ struct ContentView: View {
         NavigationView {
             VStack(){
                 if logined {
-                    Text("欢迎，\(appData.userName ?? "")").font(.title)
+                    ChatView()
                 }else{
                     Button(action: toLogin){
                         Text("请登录")
-                    }
-                }
-                Spacer()
-                if logined {
-                    Button(action: logout){
-                        Text("退出登录")
                     }
                 }
             }
