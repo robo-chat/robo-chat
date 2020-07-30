@@ -20,6 +20,10 @@ struct ContentView: View {
             VStack(){
                 if logined {
                     Text("欢迎，\(appData.userName ?? "")").font(.title)
+                    NavigationLink(
+                        "进入聊天室",
+                        destination: ChatView()
+                    ).padding(.all, 16)
                 }else{
                     Button(action: toLogin){
                         Text("请登录")
@@ -41,7 +45,7 @@ struct ContentView: View {
     
     private func logout(){
         appData.userName = nil
-        toLogin()
+        ()
     }
     
     private func toLogin(){
