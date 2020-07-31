@@ -16,11 +16,37 @@
 		22AE8C63247D687900D9CF3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C61247D687900D9CF3A /* LaunchScreen.storyboard */; };
 		22AE8C6B247D6D0B00D9CF3A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C6A247D6D0B00D9CF3A /* README.md */; };
 		7D5BDDC924B845AA004F6739 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5BDDC824B845AA004F6739 /* ChatView.swift */; };
+		7D72923B24D2644B00AE2E13 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72923A24D2644B00AE2E13 /* KeyboardViewController.swift */; };
+		7D72923F24D2644B00AE2E13 /* EmojiKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D72923824D2644B00AE2E13 /* EmojiKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7D925D6524B59AA9005B3433 /* TesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D925D6424B59AA9005B3433 /* TesView.swift */; };
 		AB2BD4F424AD62D400CC04BF /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2BD4F324AD62D400CC04BF /* StartView.swift */; };
 		ABFBEF2124A03EA4009682D7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBEF2024A03EA4009682D7 /* AppData.swift */; };
 		ABFBEF2324A03EB0009682D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBEF2224A03EB0009682D7 /* LoginView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7D72923D24D2644B00AE2E13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22AE8C48247D687800D9CF3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D72923724D2644B00AE2E13;
+			remoteInfo = EmojiKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7D72924024D2644B00AE2E13 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7D72923F24D2644B00AE2E13 /* EmojiKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		22AE8C50247D687800D9CF3A /* robochat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = robochat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,7 +59,10 @@
 		22AE8C62247D687900D9CF3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22AE8C64247D687900D9CF3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22AE8C6A247D6D0B00D9CF3A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7D5BDDC824B845AA004F6739 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		7D5BDDC824B845AA004F6739 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7D72923824D2644B00AE2E13 /* EmojiKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EmojiKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D72923A24D2644B00AE2E13 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		7D72923C24D2644B00AE2E13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D925D6424B59AA9005B3433 /* TesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesView.swift; sourceTree = "<group>"; };
 		AB2BD4F324AD62D400CC04BF /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		ABFBEF2024A03EA4009682D7 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
@@ -48,6 +77,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7D72923524D2644B00AE2E13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -56,6 +92,7 @@
 			children = (
 				22AE8C6A247D6D0B00D9CF3A /* README.md */,
 				22AE8C52247D687800D9CF3A /* robochat */,
+				7D72923924D2644B00AE2E13 /* EmojiKeyboard */,
 				22AE8C51247D687800D9CF3A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				22AE8C50247D687800D9CF3A /* robochat.app */,
+				7D72923824D2644B00AE2E13 /* EmojiKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +134,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		7D72923924D2644B00AE2E13 /* EmojiKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7D72923A24D2644B00AE2E13 /* KeyboardViewController.swift */,
+				7D72923C24D2644B00AE2E13 /* Info.plist */,
+			);
+			path = EmojiKeyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,15 +153,34 @@
 				22AE8C4C247D687800D9CF3A /* Sources */,
 				22AE8C4D247D687800D9CF3A /* Frameworks */,
 				22AE8C4E247D687800D9CF3A /* Resources */,
+				7D72924024D2644B00AE2E13 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7D72923E24D2644B00AE2E13 /* PBXTargetDependency */,
 			);
 			name = robochat;
 			productName = robochat;
 			productReference = 22AE8C50247D687800D9CF3A /* robochat.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7D72923724D2644B00AE2E13 /* EmojiKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D72924324D2644B00AE2E13 /* Build configuration list for PBXNativeTarget "EmojiKeyboard" */;
+			buildPhases = (
+				7D72923424D2644B00AE2E13 /* Sources */,
+				7D72923524D2644B00AE2E13 /* Frameworks */,
+				7D72923624D2644B00AE2E13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EmojiKeyboard;
+			productName = EmojiKeyboard;
+			productReference = 7D72923824D2644B00AE2E13 /* EmojiKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -122,12 +188,15 @@
 		22AE8C48247D687800D9CF3A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = robochat;
 				TargetAttributes = {
 					22AE8C4F247D687800D9CF3A = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					7D72923724D2644B00AE2E13 = {
+						CreatedOnToolsVersion = 11.6;
 					};
 				};
 			};
@@ -145,6 +214,7 @@
 			projectRoot = "";
 			targets = (
 				22AE8C4F247D687800D9CF3A /* robochat */,
+				7D72923724D2644B00AE2E13 /* EmojiKeyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -158,6 +228,13 @@
 				22AE8C60247D687900D9CF3A /* Preview Assets.xcassets in Resources */,
 				22AE8C6B247D6D0B00D9CF3A /* README.md in Resources */,
 				22AE8C5D247D687900D9CF3A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D72923624D2644B00AE2E13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +257,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7D72923424D2644B00AE2E13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D72923B24D2644B00AE2E13 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7D72923E24D2644B00AE2E13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D72923724D2644B00AE2E13 /* EmojiKeyboard */;
+			targetProxy = 7D72923D24D2644B00AE2E13 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		22AE8C61247D687900D9CF3A /* LaunchScreen.storyboard */ = {
@@ -311,6 +404,7 @@
 		22AE8C68247D687900D9CF3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"robochat/Preview Content\"";
@@ -330,6 +424,7 @@
 		22AE8C69247D687900D9CF3A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"robochat/Preview Content\"";
@@ -341,6 +436,44 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.robochat.robochat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7D72924124D2644B00AE2E13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EmojiKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.robochat.robochat.EmojiKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D72924224D2644B00AE2E13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EmojiKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.robochat.robochat.EmojiKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,6 +496,15 @@
 			buildConfigurations = (
 				22AE8C68247D687900D9CF3A /* Debug */,
 				22AE8C69247D687900D9CF3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D72924324D2644B00AE2E13 /* Build configuration list for PBXNativeTarget "EmojiKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D72924124D2644B00AE2E13 /* Debug */,
+				7D72924224D2644B00AE2E13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
