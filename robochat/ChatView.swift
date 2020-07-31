@@ -14,7 +14,7 @@ struct ChatView: View {
     @State private var micType: Bool = false
     @State private var cusKeyboradType: Bool = false
     @State private var bottom: CGFloat = 0
-    private let didShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
+    private let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
     private let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
     var body: some View {
         GeometryReader {geometry in
@@ -74,7 +74,7 @@ struct ChatView: View {
                     }
                 )
                 .padding(.bottom, self.bottom)
-                .onReceive(self.didShow){note in
+                .onReceive(self.willShow){note in
                     withAnimation{
                         self.bottomChange(note, geometry: geometry)
                     }
