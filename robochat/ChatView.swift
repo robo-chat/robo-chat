@@ -8,14 +8,20 @@
 
 import SwiftUI
 
+let emojiKeyboardHasShownEvent = Notification.Name("emoji-keyboard-will-show")
+
 struct ChatView: View {
     @Environment(\.presentationMode) var presentation
 
-    var friendName = "机器人"
+    let friendName = "机器人"
+    let bottomId = UUID()
     @State var inputContent = ""
     @State var useVoiceInput = false
     @State var showEmoji = false
     @State var showTools = false
+    @State var msgIdToVisible: UUID?
+    @EnvironmentObject var appData: AppData
+    var chatList: [Message] {get {return appData.chatList}}
     
     private let keyboardWillShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
     
@@ -43,15 +49,44 @@ struct ChatView: View {
     }
     
     var chatWindow: some View{
-        ScrollView(){
-            
-        }.background(Color("ChatBackgroundColor"))
-        .gesture(
-            TapGesture()
-                .onEnded { _ in
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        ScrollViewReader { scrollProxy in
+            ScrollView(){
+                LazyVStack{
+                    ForEach(chatList){m in
+                        return MessageView(message: m).id(m.id)
+                    }
+                    HStack(){}.frame(height: 0).id(bottomId)
+                }.padding(.vertical, 12)
             }
-        )
+            .onChange(of: msgIdToVisible){id in
+                guard id != nil else {return}
+                print(id!)
+                withAnimation{
+                    scrollProxy.scrollTo(bottomId)
+                }
+            }
+            .onAppear{
+                scrollProxy.scrollTo(bottomId)
+            }
+            .onReceive(keyboardWillShow){ _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    withAnimation{
+                        scrollProxy.scrollTo(bottomId)
+                    }
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: emojiKeyboardHasShownEvent)){ _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    withAnimation{
+                        scrollProxy.scrollTo(bottomId)
+                    }
+                }
+            }
+            .background(Color("ChatBackgroundColor"))
+            .gesture(
+                TapGesture().onEnded{ _ in self.dismissKeyboard()}
+            )
+        }
     }
     
     var inputBar: some View{
@@ -119,7 +154,18 @@ struct ChatView: View {
     }
     
     func send(){
+        appendMsg(inputContent, true)
         inputContent = ""
+        let delay = Double.random(in: 0.5..<3.5)
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            appendMsg(["好的", "嗯嗯", "没问题", "收到", "好嘞，您呐！"].randomElement()!, false)
+        }
+    }
+    
+    func appendMsg(_ content: String, _ isMe: Bool){
+        let msg = Message(content: content, isMe: isMe)
+        appData.chatList.append(msg)
+        msgIdToVisible = msg.id
     }
     
     func dismissKeyboard(){
@@ -145,6 +191,9 @@ struct ChatView: View {
         withAnimation(){
             showEmoji.toggle()
         }
+        if showEmoji {
+            NotificationCenter.default.post(name: emojiKeyboardHasShownEvent, object: nil)
+        }
     }
     
     func toggleTools(){
@@ -156,6 +205,7 @@ struct ChatView: View {
     func appendInput(_ content: String){
         inputContent += content
     }
+
 }
 
 struct ChatView_Previews: PreviewProvider {

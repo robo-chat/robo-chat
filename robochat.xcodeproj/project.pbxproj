@@ -19,6 +19,9 @@
 		ABFBEF2124A03EA4009682D7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBEF2024A03EA4009682D7 /* AppData.swift */; };
 		ABFBEF2324A03EB0009682D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBEF2224A03EB0009682D7 /* LoginView.swift */; };
 		FD4BB19124C83D8B0029A472 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BB19024C83D8B0029A472 /* ChatView.swift */; };
+		FD593A7324DBA3A600BE7770 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD593A7224DBA3A600BE7770 /* Message.swift */; };
+		FDAE4A7124DAEF7C00DFFC5D /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE4A7024DAEF7B00DFFC5D /* MessageView.swift */; };
+		FDD6111F24DC36EA0092A155 /* sampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6111E24DC36EA0092A155 /* sampleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		ABFBEF2024A03EA4009682D7 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		ABFBEF2224A03EB0009682D7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FD4BB19024C83D8B0029A472 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		FD593A7224DBA3A600BE7770 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		FDAE4A7024DAEF7B00DFFC5D /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		FDD6111E24DC36EA0092A155 /* sampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +76,11 @@
 			isa = PBXGroup;
 			children = (
 				ABFBEF2024A03EA4009682D7 /* AppData.swift */,
+				FDD6111E24DC36EA0092A155 /* sampleData.swift */,
 				22AE8C53247D687800D9CF3A /* AppDelegate.swift */,
 				22AE8C55247D687800D9CF3A /* SceneDelegate.swift */,
+				FDAE4A7024DAEF7B00DFFC5D /* MessageView.swift */,
+				FD593A7224DBA3A600BE7770 /* Message.swift */,
 				FD4BB19024C83D8B0029A472 /* ChatView.swift */,
 				ABFBEF2224A03EB0009682D7 /* LoginView.swift */,
 				22AE8C5A247D687800D9CF3A /* ContentView.swift */,
@@ -168,8 +177,11 @@
 				ABFBEF2324A03EB0009682D7 /* LoginView.swift in Sources */,
 				22AE8C54247D687800D9CF3A /* AppDelegate.swift in Sources */,
 				22AE8C59247D687800D9CF3A /* robochat.xcdatamodeld in Sources */,
+				FDAE4A7124DAEF7C00DFFC5D /* MessageView.swift in Sources */,
 				22AE8C5B247D687800D9CF3A /* ContentView.swift in Sources */,
+				FD593A7324DBA3A600BE7770 /* Message.swift in Sources */,
 				FD4BB19124C83D8B0029A472 /* ChatView.swift in Sources */,
+				FDD6111F24DC36EA0092A155 /* sampleData.swift in Sources */,
 				22AE8C56247D687800D9CF3A /* SceneDelegate.swift in Sources */,
 				ABFBEF2124A03EA4009682D7 /* AppData.swift in Sources */,
 				AB2BD4F424AD62D400CC04BF /* StartView.swift in Sources */,

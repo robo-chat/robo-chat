@@ -31,7 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.backgroundColor = #colorLiteral(red: 0.9293304086, green: 0.929463923, blue: 0.9293012023, alpha: 1)
             window.rootViewController =  UIHostingController(rootView: startView.environmentObject(appData))
             self.window = window
             window.makeKeyAndVisible()
