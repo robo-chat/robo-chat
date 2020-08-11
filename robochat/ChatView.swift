@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ChatView: View {
     @Environment(\.presentationMode) var presentation
+    @Environment(\.managedObjectContext) var context
+//    @FetchRequest(entity: Message.entity(), sortDescriptors: []) var messages: FetchedResults<Message>
 
     var friendName = "机器人"
     @State var inputContent = ""
@@ -29,7 +31,8 @@ struct ChatView: View {
                     emojiBox.transition(.move(edge: .bottom))
                 }
             }.background(Color("ChartInputBarBackgroundColor").edgesIgnoringSafeArea(.all))
-        }.background(Color("InputBackgroundColor").edgesIgnoringSafeArea(.all))
+        }.background(Color("InputBackgroundColor")
+        .edgesIgnoringSafeArea(.all))
         .navigationBarTitle(friendName, displayMode: .inline)
         .navigationBarItems(
             leading: Button(action: back){
@@ -56,7 +59,9 @@ struct ChatView: View {
                     }
                 }.padding()
             }.onReceive(keyboardDidShow){ _ in
-                content.scrollTo(list.count)
+                withAnimation {
+                    content.scrollTo(list.count)
+                }
             }.onAppear() {
                 content.scrollTo(list.count)
             }
@@ -137,6 +142,13 @@ struct ChatView: View {
     func send(){
         list.append(ChatMsg(id: list.count + 1, isMine: true, msg: inputContent))
         inputContent = ""
+//        ForEach(list) {it in
+//            let msg = Message(context: self.context)
+//            msg.id = UUID()
+//            msg.isMine = it.isMine
+//            msg.content = it.msg
+//            self.context.save()
+//        }
     }
     
     func dismissKeyboard(){
