@@ -11,7 +11,7 @@ import SwiftUI
 struct ChatView: View {
     @Environment(\.presentationMode) var presentation
     @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: ChatMsg.entity(), sortDescriptors: []) var messages: FetchedResults<ChatMsg>
+    @FetchRequest(entity: ChatMsg.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \ChatMsg.time, ascending: true)]) var messages: FetchedResults<ChatMsg>
 
     var friendName = "机器人"
     let bottomId = UUID()
@@ -147,6 +147,7 @@ struct ChatView: View {
         msg.id = UUID()
         msg.isMine = Bool.random()
         msg.msg = inputContent
+        msg.time = Date()
         do {
             try self.context.save()
             print("Msg saved.")
