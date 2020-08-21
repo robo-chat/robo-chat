@@ -7,21 +7,25 @@
 //
 
 import SwiftUI
+import CoreData
 
 let emojiKeyboardHasShownEvent = Notification.Name("emoji-keyboard-will-show")
 
 struct ChatView: View {
     @Environment(\.presentationMode) var presentation
+    @Environment(\.managedObjectContext) var dbContext
+    @EnvironmentObject var appData: AppData
 
     let friendName = "机器人"
-    let bottomId = UUID()
     @State var inputContent = ""
     @State var useVoiceInput = false
     @State var showEmoji = false
     @State var showTools = false
     @State var msgIdToVisible: UUID?
-    @EnvironmentObject var appData: AppData
-    var chatList: [Message] {get {return appData.chatList}}
+    
+    @FetchRequest(entity: Message.entity(), sortDescriptors: [
+        NSSortDescriptor(keyPath: \Message.sendTime, ascending: true)
+    ]) var chatList: FetchedResults<Message>
     
     private let keyboardWillShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
     
@@ -55,30 +59,30 @@ struct ChatView: View {
                     ForEach(chatList){m in
                         return MessageView(message: m).id(m.id)
                     }
-                    HStack(){}.frame(height: 0).id(bottomId)
                 }.padding(.vertical, 12)
             }
             .onChange(of: msgIdToVisible){id in
                 guard id != nil else {return}
                 print(id!)
                 withAnimation{
-                    scrollProxy.scrollTo(bottomId)
+                    scrollProxy.scrollTo(msgIdToVisible)
                 }
             }
             .onAppear{
-                scrollProxy.scrollTo(bottomId)
+                msgIdToVisible = chatList.last?.id
+                scrollProxy.scrollTo(msgIdToVisible)
             }
             .onReceive(keyboardWillShow){ _ in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     withAnimation{
-                        scrollProxy.scrollTo(bottomId)
+                        scrollProxy.scrollTo(msgIdToVisible)
                     }
                 }
             }
             .onReceive(NotificationCenter.default.publisher(for: emojiKeyboardHasShownEvent)){ _ in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     withAnimation{
-                        scrollProxy.scrollTo(bottomId)
+                        scrollProxy.scrollTo(msgIdToVisible)
                     }
                 }
             }
@@ -163,8 +167,16 @@ struct ChatView: View {
     }
     
     func appendMsg(_ content: String, _ isMe: Bool){
-        let msg = Message(content: content, isMe: isMe)
-        appData.chatList.append(msg)
+        let msg = Message(context: dbContext)
+        msg.content = content
+        msg.isMe = isMe
+        msg.id = UUID()
+        msg.sendTime = Date()
+        do{
+            try dbContext.save()
+        }catch{
+            print("发送失败")
+        }
         msgIdToVisible = msg.id
     }
     

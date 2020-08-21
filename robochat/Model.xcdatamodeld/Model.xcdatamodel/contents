@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17175" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Message" representedClassName="Message" syncable="YES" codeGenerationType="class">
-        <attribute name="content" attributeType="String" defaultValueString=""/>
-        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="isMe" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isMe" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="sendTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Message" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="Message" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

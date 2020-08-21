@@ -24,7 +24,7 @@ struct MessageView: View {
                 Spacer()
                 
                 HStack{
-                    Text(message.content)
+                    Text(message.content ?? "")
                 }.environment(\.layoutDirection, LayoutDirection.leftToRight)
                 .padding(.all, 12)
                 .background(contentBackgroundColor)
@@ -52,6 +52,10 @@ struct MessageView: View {
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageView(message: Message(content: "haha", isMe: true))
+        var msg = Message()
+        msg.id = UUID()
+        msg.content = "hahaha"
+        msg.isMe = true
+        return MessageView(message: msg)
     }
 }
