@@ -17,6 +17,7 @@
 		22AE8C6B247D6D0B00D9CF3A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 22AE8C6A247D6D0B00D9CF3A /* README.md */; };
 		7D46129C24E29E9900B84310 /* ChatMsg+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D46129A24E29E9900B84310 /* ChatMsg+CoreDataClass.swift */; };
 		7D46129D24E29E9900B84310 /* ChatMsg+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D46129B24E29E9900B84310 /* ChatMsg+CoreDataProperties.swift */; };
+		7D8D7F0C24F8E0A400080371 /* ApiClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D7F0B24F8E0A400080371 /* ApiClassifier.mlmodel */; };
 		AB2BD4F424AD62D400CC04BF /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2BD4F324AD62D400CC04BF /* StartView.swift */; };
 		ABFBEF2124A03EA4009682D7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBEF2024A03EA4009682D7 /* AppData.swift */; };
 		ABFBEF2324A03EB0009682D7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFBEF2224A03EB0009682D7 /* LoginView.swift */; };
@@ -36,6 +37,7 @@
 		22AE8C6A247D6D0B00D9CF3A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7D46129A24E29E9900B84310 /* ChatMsg+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatMsg+CoreDataClass.swift"; path = "robochat/ChatMsg+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7D46129B24E29E9900B84310 /* ChatMsg+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatMsg+CoreDataProperties.swift"; path = "robochat/ChatMsg+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7D8D7F0B24F8E0A400080371 /* ApiClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = ApiClassifier.mlmodel; path = ../../../../../Desktop/trainingData/ApiClassifier.mlmodel; sourceTree = "<group>"; };
 		AB2BD4F324AD62D400CC04BF /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		ABFBEF2024A03EA4009682D7 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		ABFBEF2224A03EB0009682D7 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				ABFBEF2224A03EB0009682D7 /* LoginView.swift */,
 				22AE8C5A247D687800D9CF3A /* ContentView.swift */,
 				22AE8C5C247D687900D9CF3A /* Assets.xcassets */,
+				7D8D7F0B24F8E0A400080371 /* ApiClassifier.mlmodel */,
 				22AE8C61247D687900D9CF3A /* LaunchScreen.storyboard */,
 				22AE8C64247D687900D9CF3A /* Info.plist */,
 				AB2BD4F324AD62D400CC04BF /* StartView.swift */,
@@ -180,6 +183,7 @@
 				22AE8C56247D687800D9CF3A /* SceneDelegate.swift in Sources */,
 				ABFBEF2124A03EA4009682D7 /* AppData.swift in Sources */,
 				7D46129C24E29E9900B84310 /* ChatMsg+CoreDataClass.swift in Sources */,
+				7D8D7F0C24F8E0A400080371 /* ApiClassifier.mlmodel in Sources */,
 				AB2BD4F424AD62D400CC04BF /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

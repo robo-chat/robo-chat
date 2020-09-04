@@ -15,6 +15,7 @@ struct ChatView: View {
 
     var friendName = "机器人"
     let bottomId = UUID()
+    let model = ApiClassifier()
     @State var inputContent = ""
     @State var useVoiceInput = false
     @State var showEmoji = false
@@ -145,16 +146,32 @@ struct ChatView: View {
     func send(){
         let msg = ChatMsg(context: self.context)
         msg.id = UUID()
-        msg.isMine = Bool.random()
+        msg.isMine = true
         msg.msg = inputContent
         msg.time = Date()
         do {
             try self.context.save()
-            print("Msg saved.")
+            reply(inputContent)
         } catch {
             print(error.localizedDescription)
         }
         inputContent = ""
+    }
+    
+    func reply(_ content: String) {
+        guard let output = try? model.prediction(text: content) else {
+            fatalError("Unexpected runtime error.")
+        }
+        let msg = ChatMsg(context: self.context)
+        msg.id = UUID()
+        msg.isMine = false
+        msg.msg = output.label.replacingOccurrences(of: "_", with: "/")
+        msg.time = Date()
+        do {
+            try self.context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     func dismissKeyboard(){
