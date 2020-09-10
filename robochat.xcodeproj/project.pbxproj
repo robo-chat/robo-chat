@@ -21,6 +21,7 @@
 		FD4BB19124C83D8B0029A472 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BB19024C83D8B0029A472 /* ChatView.swift */; };
 		FDAE4A7124DAEF7C00DFFC5D /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAE4A7024DAEF7B00DFFC5D /* MessageView.swift */; };
 		FDD6111F24DC36EA0092A155 /* sampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6111E24DC36EA0092A155 /* sampleData.swift */; };
+		FDF25FAD2509D7E500544BC7 /* BookClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FDF25FAC2509D7E500544BC7 /* BookClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FD4BB19024C83D8B0029A472 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		FDAE4A7024DAEF7B00DFFC5D /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		FDD6111E24DC36EA0092A155 /* sampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleData.swift; sourceTree = "<group>"; };
+		FDF25FAC2509D7E500544BC7 /* BookClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BookClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		22AE8C52247D687800D9CF3A /* robochat */ = {
 			isa = PBXGroup;
 			children = (
+				FD601BA324EFCDD5009AA4A0 /* MLModel */,
 				ABFBEF2024A03EA4009682D7 /* AppData.swift */,
 				FDD6111E24DC36EA0092A155 /* sampleData.swift */,
 				22AE8C53247D687800D9CF3A /* AppDelegate.swift */,
@@ -97,6 +100,14 @@
 				22AE8C5F247D687900D9CF3A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FD601BA324EFCDD5009AA4A0 /* MLModel */ = {
+			isa = PBXGroup;
+			children = (
+				FDF25FAC2509D7E500544BC7 /* BookClassifier.mlmodel */,
+			);
+			path = MLModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABFBEF2324A03EB0009682D7 /* LoginView.swift in Sources */,
+				FDF25FAD2509D7E500544BC7 /* BookClassifier.mlmodel in Sources */,
 				22AE8C54247D687800D9CF3A /* AppDelegate.swift in Sources */,
 				22AE8C59247D687800D9CF3A /* robochat.xcdatamodeld in Sources */,
 				FDAE4A7124DAEF7C00DFFC5D /* MessageView.swift in Sources */,

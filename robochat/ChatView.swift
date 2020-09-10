@@ -8,6 +8,8 @@
 
 import SwiftUI
 import CoreData
+import NaturalLanguage
+import CoreML
 
 let emojiKeyboardHasShownEvent = Notification.Name("emoji-keyboard-will-show")
 
@@ -158,11 +160,15 @@ struct ChatView: View {
     }
     
     func send(){
-        appendMsg(inputContent, true)
+        let msg = inputContent
+        appendMsg(msg, true)
         inputContent = ""
-        let delay = Double.random(in: 0.5..<3.5)
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            appendMsg(["好的", "嗯嗯", "没问题", "收到", "好嘞，您呐！"].randomElement()!, false)
+        do{
+            let novelModel = BookClassifier()
+            let output = try novelModel.prediction(text: msg)
+            appendMsg(output.label, false)
+        }catch is Error{
+            appendMsg("哎呀，出错了", false)
         }
     }
     
